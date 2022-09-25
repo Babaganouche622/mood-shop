@@ -12,6 +12,10 @@ body {
     background-color: bisque;
 }
 
+nav {
+    background-color: hotpink;
+}
+
 .page-header ul {
     display: flex;
     flex-direction: row;
