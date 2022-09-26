@@ -35,3 +35,15 @@ for (let i = 0; i < data.length; i += 1) {
 	button.innerHTML = "Add to Cart";
 	newDiv.appendChild(button);
 }
+
+const cart = []
+function addItem(name, price) {
+    const item = { name: name, price: price, qty: 1}
+    cart.push(item);
+}
+function showItem() {
+    console.log(`You have ${cart.length} items in your cart`);
+}
+showItem()
+addItem('Apple', 0.99)
+addItem('Orange', 1.29)
