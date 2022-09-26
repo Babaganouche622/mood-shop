@@ -28,3 +28,35 @@ nav {
     padding:0.5em;
     text-decoration:none;
   }
+
+  .items {
+    width: 95%;
+    margin: auto;
+  
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1em;
+  }
+
+  .items img {
+    width: 100%;
+    height: auto;
+  }
+
+  .item {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: flex-end; */
+    font-size: 10px;
+    font-family: Helvetica, arial, sans-serif;
+    background-color: aqua;
+    border: 1px solid #333;
+  }
+
+  .item button {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    font-size: 8px;
+    padding: auto;
+  }
