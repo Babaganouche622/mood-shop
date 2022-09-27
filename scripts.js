@@ -1,6 +1,11 @@
 import data from './data.js'
 
 const itemsContainer = document.querySelector('#items');
+const itemList = document.getElementById('item-list');
+const cartQty = document.getElementById('cart-qty');
+const cartTotal = document.getElementById('cart-total');
+
+const cart = []
 
 
 for (let i = 0; i < data.length; i += 1) {
@@ -36,7 +41,6 @@ for (let i = 0; i < data.length; i += 1) {
 	newDiv.appendChild(button);
 }
 
-const cart = []
 function addItem(name, price) {
     for (let i = 0; i < cart.length; i++) {
         if (cart[i].name === name) {
@@ -49,13 +53,20 @@ function addItem(name, price) {
     cart.push(item);
 }
 function showItem() {
+    let itemStr = '';
+    const qty = getQty();
+    // console.log(`You have ${qty} items in your cart`);
+    cartQty.innerHTML = `You have ${qty} items in your cart`;
 
-    console.log(`You have ${getQty()} items in your cart`);
     for (let i = 0; i < cart.length; i++) {
-        console.log(`-${cart[i].name} ${cart[i].price} x ${cart[i].qty}`);
-    }
+        // console.log(`-${cart[i].name} ${cart[i].price} x ${cart[i].qty}`);
+        const { name, price, qty } = cart[i]
 
-    console.log(`Total in cart: $${getTotal()}`);
+        itemStr += `<li>${name} $${price} x ${qty} = ${qty * price}</li>`;
+    }
+    itemList.innerHTML = itemStr;
+    // console.log(`Total in cart: $${getTotal()}`);
+    cartTotal.innerHTML = `Total in cart: $${getTotal()}`;
 }
 
 function getQty() {
@@ -74,11 +85,13 @@ function getTotal() {
     return total.toFixed(2);
 }
 
-function removeItem(name) {
+function removeItem(name, qty = 0) {
     for (let i = 0; i < cart.length; i++) {
         if (cart[i].name === name) {
             cart[i].qty--
-            // cart.splice(i, 1)
+            if (cart[i].qty < 1 || qty === 0){
+                cart.splice(i, 1)
+            }
             return
         }
     }
