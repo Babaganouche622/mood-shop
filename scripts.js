@@ -74,6 +74,16 @@ function getTotal() {
     return total.toFixed(2);
 }
 
+function removeItem(name) {
+    for (let i = 0; i < cart.length; i++) {
+        if (cart[i].name === name) {
+            cart[i].qty--
+            // cart.splice(i, 1)
+            return
+        }
+    }
+}
+
 
 showItem()
 addItem('Apple', 0.99)

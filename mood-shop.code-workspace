@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"name": "mood-shop",
+			"path": "."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "mood-shop"
+	}
+}
