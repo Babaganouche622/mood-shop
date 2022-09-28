@@ -41,6 +41,9 @@ for (let i = 0; i < data.length; i += 1) {
 	newDiv.appendChild(button);
 }
 
+const all_items_button = Array.from(document.querySelectorAll("button"))
+
+
 function addItem(name, price) {
     for (let i = 0; i < cart.length; i++) {
         if (cart[i].name === name) {
@@ -96,6 +99,12 @@ function removeItem(name, qty = 0) {
         }
     }
 }
+
+all_items_button.forEach(elt => elt.addEventListener('click', () => {
+    addItem(elt.getAttribute('id'), elt.getAttribute('data-price'))
+    showItem()
+}))
+
 
 
 showItem()
