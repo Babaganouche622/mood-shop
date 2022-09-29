@@ -51,7 +51,7 @@ all_items_button.forEach(elt => elt.addEventListener('click', () => {
 }))
 
 itemList.onchange = function(e) {
-    if (e.traget && e.target.classList.contains('update')) {
+    if (e.target && e.target.classList.contains('update')) {
         const name = e.target.dataset.name;
         const qty = parseInt(e.target.value);
         updateCart(name, qty);
@@ -78,6 +78,7 @@ function addItem(name, price) {
     for (let i = 0; i < cart.length; i++) {
         if (cart[i].name === name) {
             cart[i].qty++;
+            showItem()
             return
         }
     }
